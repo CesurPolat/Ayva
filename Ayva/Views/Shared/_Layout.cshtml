@@ -26,23 +26,23 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+            <div class=" collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Ana Sayfa", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Ayva Üretim", "Index", "User", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Ana Sayfa", "Index", "Home", new { area = "" }, new { @class = "nav-link !tw-text-white" })</li>
+                    <li>@Html.ActionLink("Ayva Üretim", "Index", "User", new { area = "" }, new { @class = "nav-link !tw-text-white" })</li>
                     @if (HttpContext.Current.User.Identity.IsAuthenticated)
                     {
                         if (HttpContext.Current.User.IsInRole("admin"))
                         {
-                            <li>@Html.ActionLink("Yönetim Paneli", "Index", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Slider Paneli", "Index", "Slider", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Yönetim Paneli", "Index", "Admin", new { area = "" }, new { @class = "nav-link !tw-text-white" })</li>
+                            <li>@Html.ActionLink("Slider Paneli", "Index", "Slider", new { area = "" }, new { @class = "nav-link !tw-text-white" })</li>
                         }
-                        <li>@Html.ActionLink("Çıkış Yap", "LogOut", "Auth", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Çıkış Yap", "LogOut", "Auth", new { area = "" }, new { @class = "nav-link !tw-text-white" })</li>
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Giriş Yap", "Login", "Auth", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Kayıt Ol", "SignUp", "Auth", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Giriş Yap", "Login", "Auth", new { area = "" }, new { @class = "nav-link !tw-text-white" })</li>
+                        <li>@Html.ActionLink("Kayıt Ol", "SignUp", "Auth", new { area = "" }, new { @class = "nav-link !tw-text-white" })</li>
 
                     }
                 </ul>

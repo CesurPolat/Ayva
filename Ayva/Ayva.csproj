@@ -196,6 +196,11 @@
     <Content Include="Images\ayva.png" />
     <Content Include="Images\bahce.png" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\readme\admin.png" />
+    <Content Include="Images\readme\anasayfa.png" />
+    <Content Include="Images\readme\giriş.png" />
+    <Content Include="Images\readme\slider.png" />
+    <Content Include="Images\readme\user.png" />
     <Content Include="Images\spor.png" />
     <Content Include="Images\tatli.png" />
     <Content Include="Models\Model1.Context.tt">
