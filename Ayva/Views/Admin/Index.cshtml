@@ -1,0 +1,170 @@
+﻿@model IEnumerable<Ayva.Models.Tbl_ayvaUretim>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="h2 text-center">Ayva Üretimi</h2>
+
+<table class="table table-hover table-striped">
+
+
+    <thead>
+        <tr class="tw-bg-yellow-300">
+            <th>İller</th>
+            <th>Yıl</th>
+            <th>Üretim Miktarı (Ton)</th>
+            <th><button type="button" class="btn btn-primary text-primary" data-bs-toggle="modal" data-bs-target="#myModalEkle">+ Ekle</button></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @ViewBag.iller[(int)item.ilID-1]
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.uYili)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.uretimMiktari)
+                </td>
+                <td class="tw-flex">
+                    <a href="@Url.Action("Edit", new {id = item.Id})"><?xml version="1.0" ?>
+                    <svg class="feather feather-edit" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" /></svg></a>|
+                <a href="@Url.Action("Delete", new {id = item.Id})">
+                    <?xml version="1.0" ?>
+                    <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+                    <svg enable-background="new 0 0 48 48" height="24px" version="1.1" viewBox="0 0 48 48" width="48px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Expanded"><g><g><path d="M41,48H7V7h34V48z M9,46h30V9H9V46z" /></g><g><path d="M35,9H13V1h22V9z M15,7h18V3H15V7z" /></g><g><path d="M16,41c-0.553,0-1-0.447-1-1V15c0-0.553,0.447-1,1-1s1,0.447,1,1v25C17,40.553,16.553,41,16,41z" /></g><g><path d="M24,41c-0.553,0-1-0.447-1-1V15c0-0.553,0.447-1,1-1s1,0.447,1,1v25C25,40.553,24.553,41,24,41z" /></g><g><path d="M32,41c-0.553,0-1-0.447-1-1V15c0-0.553,0.447-1,1-1s1,0.447,1,1v25C33,40.553,32.553,41,32,41z" /></g><g><rect height="2" width="48" y="7" /></g></g></g></svg>
+                </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+    <div class="modal" id="myModalEkle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Veri Girişi</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">X</button>
+                </div>
+                @using (Html.BeginForm("Create", "admin", FormMethod.Post)) {
+            <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="tw-w-full tw-flex m-2">
+                        <div class="tw-w-1/2">İl:</div>
+                        <div class="tw-w-1/2">
+                            <select name="ilID" id="ilID">
+                                <option value="0">İl Seçin</option>
+                                <option value="1">Adana</option>
+                                <option value="2">Adıyaman</option>
+                                <option value="3">Afyonkarahisar</option>
+                                <option value="4">Ağrı</option>
+                                <option value="5">Amasya</option>
+                                <option value="6">Ankara</option>
+                                <option value="7">Antalya</option>
+                                <option value="8">Artvin</option>
+                                <option value="9">Aydın</option>
+                                <option value="10">Balıkesir</option>
+                                <option value="11">Bilecik</option>
+                                <option value="12">Bingöl</option>
+                                <option value="13">Bitlis</option>
+                                <option value="14">Bolu</option>
+                                <option value="15">Burdur</option>
+                                <option value="16">Bursa</option>
+                                <option value="17">Çanakkale</option>
+                                <option value="18">Çankırı</option>
+                                <option value="19">Çorum</option>
+                                <option value="20">Denizli</option>
+                                <option value="21">Diyarbakır</option>
+                                <option value="22">Edirne</option>
+                                <option value="23">Elazığ</option>
+                                <option value="24">Erzincan</option>
+                                <option value="25">Erzurum</option>
+                                <option value="26">Eskişehir</option>
+                                <option value="27">Gaziantep</option>
+                                <option value="28">Giresun</option>
+                                <option value="29">Gümüşhane</option>
+                                <option value="30">Hakkâri</option>
+                                <option value="31">Hatay</option>
+                                <option value="32">Isparta</option>
+                                <option value="33">Mersin</option>
+                                <option value="34">İstanbul</option>
+                                <option value="35">İzmir</option>
+                                <option value="36">Kars</option>
+                                <option value="37">Kastamonu</option>
+                                <option value="38">Kayseri</option>
+                                <option value="39">Kırklareli</option>
+                                <option value="40">Kırşehir</option>
+                                <option value="41">Kocaeli</option>
+                                <option value="42">Konya</option>
+                                <option value="43">Kütahya</option>
+                                <option value="44">Malatya</option>
+                                <option value="45">Manisa</option>
+                                <option value="46">Kahramanmaraş</option>
+                                <option value="47">Mardin</option>
+                                <option value="48">Muğla</option>
+                                <option value="49">Muş</option>
+                                <option value="50">Nevşehir</option>
+                                <option value="51">Niğde</option>
+                                <option value="52">Ordu</option>
+                                <option value="53">Rize</option>
+                                <option value="54">Sakarya</option>
+                                <option value="55">Samsun</option>
+                                <option value="56">Siirt</option>
+                                <option value="57">Sinop</option>
+                                <option value="58">Sivas</option>
+                                <option value="59">Tekirdağ</option>
+                                <option value="60">Tokat</option>
+                                <option value="61">Trabzon</option>
+                                <option value="62">Tunceli</option>
+                                <option value="63">Şanlıurfa</option>
+                                <option value="64">Uşak</option>
+                                <option value="65">Van</option>
+                                <option value="66">Yozgat</option>
+                                <option value="67">Zonguldak</option>
+                                <option value="68">Aksaray</option>
+                                <option value="69">Bayburt</option>
+                                <option value="70">Karaman</option>
+                                <option value="71">Kırıkkale</option>
+                                <option value="72">Batman</option>
+                                <option value="73">Şırnak</option>
+                                <option value="74">Bartın</option>
+                                <option value="75">Ardahan</option>
+                                <option value="76">Iğdır</option>
+                                <option value="77">Yalova</option>
+                                <option value="78">Karabük</option>
+                                <option value="79">Kilis</option>
+                                <option value="80">Osmaniye</option>
+                                <option value="81">Düzce</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tw-w-full tw-flex m-2">
+                        <div class="tw-w-1/2">Üretim Miktarı:</div>
+                        <div class="tw-w-1/2">
+                            <input type="number" class="border rounded-1" name="uretimMiktari" />
+                        </div>
+                    </div>
+                    <div class="tw-w-full tw-flex m-2">
+                        <div class="tw-w-1/2">Üretim Yılı:</div>
+                        <div class="tw-w-1/2">
+                            <input type="number" class="border rounded-1" name="uYili" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-success text-success" value="Kaydet" data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-danger text-danger" data-bs-dismiss="modal">Kapat</button>
+                </div>
+                }
+            </div>
+        </div>
+    </div>

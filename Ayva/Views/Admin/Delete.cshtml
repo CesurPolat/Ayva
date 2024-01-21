@@ -1,0 +1,50 @@
+﻿@model Ayva.Models.Tbl_ayvaUretim
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="h2">Sil</h2>
+
+<h3 class="h3">Silmek istediğinize emin misiniz?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal  m-3">
+        <dt>
+            @Html.DisplayNameFor(model => model.uYili)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uYili)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uretimMiktari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uretimMiktari)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilID)
+        </dt>
+
+        <dd>
+            @ViewBag.iller[(int)Model.ilID - 1]
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color tw-flex align-items-center">
+    <input type="submit" value="Sil" class="btn btn-default" /> |
+    @Html.ActionLink("İptal", "Index", new { @class = "btn btn-defauilt" })
+
+</div>
+        
+    }
+</div>

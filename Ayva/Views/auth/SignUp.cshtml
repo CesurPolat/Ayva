@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Kaydol";
+}
+
+
+<div class="tw-w-full tw-h-[88vh] tw-bg-cover tw-bg-no-repeat tw-bg-center tw-bg-[url('/Images/bahce.png')] tw-flex justify-content-center align-items-center">
+    <div class="bg-white rounded-5 tw-w-80 tw-h-96 tw-overflow-hidden p-3 tw-flex tw-flex-col justify-content-center">
+        <h1 class="h1 text-center m-4">Kaydol</h1>
+        @using (Html.BeginForm("SignUp", "auth", FormMethod.Post, new { @class = "tw-flex tw-flex-col align-items-center" }))
+        {
+            <input type="text" placeholder="E-Mail" class="p-2 m-2 h5 tw-w-full rounded text-white tw-bg-gray-300 placeholder:tw-text-white" name="email" />
+            @Html.ValidationMessage("email", new { @class = "tw-text-red-500 tw-font-semibold" });
+            <input type="password" placeholder="Şifre" class="p-2 m-2 h5 tw-w-full rounded text-white tw-bg-gray-300 placeholder:tw-text-white" name="password" />
+            @Html.ValidationMessage("password", new { @class = "tw-text-red-500 tw-font-semibold" });
+            <input type="submit" class="h4 p-1 m-2 text-white rounded tw-w-full  tw-bg-yellow-400 hover:tw-bg-yellow-300" />
+            <p class="tw-text-red-500 tw-font-semibold">@ViewBag.err</p>
+        }
+    </div>
+</div>

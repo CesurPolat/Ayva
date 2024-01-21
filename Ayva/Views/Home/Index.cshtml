@@ -1,0 +1,91 @@
+﻿@model List<Ayva.Models.Tbl_slider>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main class="tw-w-full">
+
+
+    <div id="carouselExampleIndicators" class="carousel slide tw-h-[448px] tw-overflow-hidden" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            @foreach (var (eleman, i) in Model.Select((value, i) => (value, i)))
+            {
+
+
+                if (i == 0)
+                {
+                    <div class="carousel-item active">
+                        <img src="@eleman.pictureUrl" class="d-block w-100 tw-h-[448px] tw-object-fill" alt="@i">
+                    </div>
+                }
+                else
+                {
+                    <div class="carousel-item">
+                        <img src="@eleman.pictureUrl" class="d-block w-100 tw-h-[448px] tw-object-fill" alt="@i">
+                    </div>
+                }
+            }
+
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="tw-flex tw-flex-wrap justify-content-center align-items-center p-2">
+        <!-- aria-labelledby="aspnetTitle"-->
+        <img src="~/Images/ayva.png" class="tw-w-96 m-3" />
+        <div class=" tw-w-full md:tw-w-1/3">
+            <h1 class="h1">Ayvayı Çok Seviyoruz</h1>
+            <p>
+                Türkiye, dünya ayva üretiminde birinci sırada yer alarak bu lezzetli meyvenin başkenti
+                konumundadır. Türk çiftçilerinin özenli çalışmaları ve üstün tarım koşulları, kaliteli ayva
+                üretimini desteklemektedir. Türk halkı da bu benzersiz meyveyi büyük bir sevgiyle tüketmektedir.
+                'Ayva çok seviyoruz' sözü, Türkiye'nin bu alandaki üstünlüğünü vurgulamaktadır.
+            </p>
+        </div>
+    </div>
+
+    <div class="tw-flex tw-flex-wrap tw-flex-col-reverse md:tw-flex-row justify-content-center align-items-center tw-bg-yellow-400 text-white p-2 ">
+        <!-- aria-labelledby="aspnetTitle"-->
+        <div class="tw-w-full md:tw-w-1/3">
+            <h1 class="h1">Ayva, sağlık dolu bir tercih!</h1>
+            <p>
+                Ayva, sağlık için harika bir seçenektir!
+                Lif, C vitamini ve antioksidanlar bakımından zengin olan bu meyve, sindirimi destekler,
+                bağışıklık sistemini güçlendirir ve kalp sağlığını destekler.
+                Ayva, düşük kalorili olmasıyla birlikte sağlıklı bir yaşam tarzına lezzetli bir katkı sunar.
+            </p>
+        </div>
+        <img src="~/Images/spor.png" class="tw-w-96 m-3" />
+
+    </div>
+
+    <div class="tw-flex tw-flex-wrap justify-content-center align-items-center p-2">
+        <!-- aria-labelledby="aspnetTitle"-->
+        <img src="~/Images/tatli.png" class="tw-w-96 m-3" />
+        <div class="tw-w-full md:tw-w-1/3">
+            <h1 class="h1">Bu Akşamın Tatlısı!</h1>
+            <p>
+                Ayva tatlısı için, ayvaları küp şeklinde doğrayıp şeker, su ve limon suyuyla kaynatın.
+                Ayvalar yumuşayınca servis yapın, üzerine ceviz ekleyerek lezzetini tamamlayın.
+                Pratik ve lezzetli bir tarif!
+            </p>
+        </div>
+    </div>
+
+
+ 
+</main>

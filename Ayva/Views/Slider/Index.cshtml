@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Ayva.Models.Tbl_slider>
+
+@{
+    ViewBag.Title = "Slider";
+}
+
+<h2>Slider</h2>
+
+<table class="table">
+    <tr>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+    </tr>
+}
+
+</table>
+
+<table class="table table-hover table-striped">
+
+
+    <thead>
+        <tr class="tw-bg-yellow-300">
+            <th>
+                @Html.DisplayNameFor(model => model.pictureUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sliderOrder)
+            </th>
+            <th>
+                @Html.ActionLink("Ekle", "Create", new {@class= "btn btn-primary text-primary" })
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    
+                    <img src="@item.pictureUrl" class="w-25"/>
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sliderOrder)
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }) |
+                    
+                    @Html.ActionLink("Sil", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
